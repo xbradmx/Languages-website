@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RomanianTunes - Music Categories</title>
-    <link rel="stylesheet" href="styles/Catagories.css">
+    <title>RomanianTunes - Interactive Lyrics</title>
+    <link rel="stylesheet" href="styles/Interactive-Lyrics.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
 </head>
 <body>
@@ -24,60 +24,118 @@
 
     <!-- Main Content -->
     <main class="main-container">
-        <!-- Filter Section -->
-        <div class="filter-section">
-            <i data-lucide="filter" class="filter-icon"></i>
-            <select id="category-filter" class="category-select">
-                <option value="all">All Categories</option>
-                <option value="folk">Folk Music</option>
-                <option value="doina">Doina</option>
-                <option value="manele">Manele</option>
-                <option value="pop">Pop Music</option>
-            </select>
-        </div>
+        
 
         <!-- Categories -->
         <div class="categories-container">
-            <!-- Folk Music Section -->
-            <section class="category-section" data-category="folk">
-                <h2>Muzică populară (Folk Music)</h2>
-                <p class="category-description">Traditional Romanian folk music passed down through generations</p>
-                <div class="songs-grid">
-                    <div class="song-card">
-                        <div class="song-header">
-                            <div class="song-info">
-                                <h3>Ciuleandra</h3>
-                                <p>Maria Tănase</p>
-                            </div>
-                            <i data-lucide="play-circle" class="play-icon"></i>
-                        </div>
-                        <span class="difficulty-badge intermediate">Intermediate</span>
-                    </div>
-                    <!-- More folk songs... -->
+            <!-- Will be video section -->
+            <section class="category-section" data-category="video-link">
+              <div class="header">
+                <h1 class="song-title-video">Tzanca Uraganu - CIOCOLATA</h1>
+            </div>
+            <div class="content">
+                <div class="video-container">
+                  <iframe 
+                  src="https://www.youtube.com/embed/7UWN_2yDK84" 
+                  frameborder="0" 
+                  allowfullscreen>
+                </iframe>
+              
                 </div>
+                
+                </div>
+            </div>
             </section>
 
-            <!-- Doina Section -->
-            <section class="category-section" data-category="doina">
-                <h2>Doina</h2>
-                <p class="category-description">Improvised Romanian pastoral ballads with melancholic themes</p>
-                <div class="songs-grid">
-                    <div class="song-card">
-                        <div class="song-header">
-                            <div class="song-info">
-                                <h3>Doina din Maramureș</h3>
-                                <p>Ioan Pop</p>
-                            </div>
-                            <i data-lucide="play-circle" class="play-icon"></i>
-                        </div>
-                        <span class="difficulty-badge advanced">Advanced</span>
-                    </div>
-                    <!-- More doina songs... -->
+            <!-- will be lyrics section english and romanian over top-->
+            <section class="category-section" data-category="ro-en-lyrics">
+                <h2>Lyrics </h2>
+                <p class="category-description"> Lyrics in romanian and english</p>
+
+                <div class="lyrics-box" id="lyricsBox">Ce decolteu când apare pare că ar fi Sola</div>
+                <div class="button-container">
+                    <button class="prev-button" onclick="showPreviousLine()">Previous Line</button>
+                    <button class="next-button" onclick="showNextLine()">Next Line</button>
                 </div>
+            
+                <script>
+                    const lyrics = [
+                        "Ce decolteu când apare pare că ar fi Sola",
+                        "Trupul ei mi-a dreglat busola",
+                        "Cu pielea ei de caramel și Cola",
+                        "M-a înnebunit de tot creola",
+                        "Uite-o cum arată zici că-i Cardi B",
+                        "Mulatră mulatră provoacă fantezii",
+                        "Rochia mulată cum îmi place mie",
+                        "Semi-transparentă fără lenjerie",
+                        "Ciocolată",
+                        "Mă topesc de pielea ei mulatră",
+                        "Cum arată mă înnebunește cum arată",
+                        "Ciocolată",
+                        "Să turbez de pielea ei mulatră",
+                        "Caramelizată",
+                        "Aș mânca-o ca pe ciocolată",
+                        "Latino-americana forme de mamacita",
+                        "Își etalează trupul pe plajă-n Costa Rica",
+                        "Def ctez loc când iese din valuri mojadita",
+                        "Pe pielea ei Oreo nu vreau să văd nimica",
+                        "Jos textila",
+                        "Suntem amețiți puțin da",
+                        "Amândoi o ardem super chill yeah",
+                        "Două shot-uri de tequila la la la la",
+                        "Textila",
+                        "Suntem amețiți puțin da",
+                        "Amândoi o ardem super chill yeah",
+                        "Două shot-uri de tequila la la la la",
+                        "Ciocolată",
+                        "Mă topesc de pielea ei mulatră",
+                        "Cum arată mă înnebunește cum arată",
+                        "Ciocolată",
+                        "Să turbez de pielea ei mulatră",
+                        "Caramelizată",
+                        "Aș mânca-o ca pe ciocolată",
+                        "Mișcări pe ritm pe reggaeton",
+                        "Arde arde caliente",
+                        "Ce bine își ondulează formele alea perfecte",
+                        "Rămâmne para siempre",
+                        "Pe locul întâi pe toate cele șapte continente",
+                        "Uite-o cum arată zici că-i Cardi B",
+                        "Mulatră mulatră provoacă fantezii",
+                        "Rochia mulată cum îmi place mie",
+                        "Semi-transparentă fără lenjerie",
+                        "Ciocolată",
+                        "Mă topesc de pielea ei mulatră",
+                        "Cum arată mă înnebunește cum arată",
+                        "Ciocolată",
+                        "Să turbez de pielea ei mulatră",
+                        "Caramelizată",
+                        "Aș mânca-o ca pe ciocolată"
+                    ];
+            
+                    let currentLine = 0;
+            
+                    function showNextLine() {
+                        if (currentLine < lyrics.length) {
+                            document.getElementById('lyricsBox').innerText = lyrics[currentLine];
+                            currentLine++;
+                        } 
+                        if (currentLine >= lyrics.length) {
+                            currentLine = lyrics.length - 1; // Stay at the last line
+                        }
+                    }
+            
+                    function showPreviousLine() {
+                        if (currentLine > 0) {
+                            currentLine--;
+                            document.getElementById('lyricsBox').innerText = lyrics[currentLine];
+                        }
+                    }
+                </script>
+
             </section>
 
-            <!-- Manele Section -->
-            <section class="category-section" data-category="manele">
+            <!-- will be links to other songs  -->
+            <section class="category-section" data-category="song-selection">
                 <h2>Manele</h2>
                 <p class="category-description">Contemporary Romanian pop-folk fusion with Oriental influences</p>
                 <div class="songs-grid">
@@ -204,24 +262,6 @@
                 </div>
             </section>
 
-            <!-- Pop Music Section -->
-            <section class="category-section" data-category="pop">
-                <h2>Muzică pop (Pop Music)</h2>
-                <p class="category-description">Modern Romanian pop music with contemporary themes</p>
-                <div class="songs-grid">
-                    <div class="song-card">
-                        <div class="song-header">
-                            <div class="song-info">
-                                <h3>Dragostea Din Tei</h3>
-                                <p>O-Zone</p>
-                            </div>
-                            <i data-lucide="play-circle" class="play-icon"></i>
-                        </div>
-                        <span class="difficulty-badge beginner">Beginner</span>
-                    </div>
-                    <!-- More pop songs... -->
-                </div>
-            </section>
         </div>
     </main>
 
