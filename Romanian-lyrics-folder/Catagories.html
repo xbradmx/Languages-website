@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RomanianTunes - Music Categories</title>
+    <link rel="stylesheet" href="styles/Catagories.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="Homepage.html" class="back-link">
+                <i data-lucide="arrow-left"></i>
+                Back to Home
+            </a>
+            <div class="nav-title">
+                <i data-lucide="music" class="icon-purple"></i>
+                <span>Music Categories</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <i data-lucide="filter" class="filter-icon"></i>
+            <select id="category-filter" class="category-select">
+                <option value="all">All Categories</option>
+                <option value="folk">Folk Music</option>
+                <option value="doina">Doina</option>
+                <option value="manele">Manele</option>
+                <option value="pop">Pop Music</option>
+            </select>
+        </div>
+
+        <!-- Categories -->
+        <div class="categories-container">
+            <!-- Folk Music Section -->
+            <section class="category-section" data-category="folk">
+                <h2>Muzică populară (Folk Music)</h2>
+                <p class="category-description">Traditional Romanian folk music passed down through generations</p>
+                <div class="songs-grid">
+                    <div class="song-card">
+                        <div class="song-header">
+                            <div class="song-info">
+                                <h3>Ciuleandra</h3>
+                                <p>Maria Tănase</p>
+                            </div>
+                            <i data-lucide="play-circle" class="play-icon"></i>
+                        </div>
+                        <span class="difficulty-badge intermediate">Intermediate</span>
+                    </div>
+                    <!-- More folk songs... -->
+                </div>
+            </section>
+
+            <!-- Doina Section -->
+            <section class="category-section" data-category="doina">
+                <h2>Doina</h2>
+                <p class="category-description">Improvised Romanian pastoral ballads with melancholic themes</p>
+                <div class="songs-grid">
+                    <div class="song-card">
+                        <div class="song-header">
+                            <div class="song-info">
+                                <h3>Doina din Maramureș</h3>
+                                <p>Ioan Pop</p>
+                            </div>
+                            <i data-lucide="play-circle" class="play-icon"></i>
+                        </div>
+                        <span class="difficulty-badge advanced">Advanced</span>
+                    </div>
+                    <!-- More doina songs... -->
+                </div>
+            </section>
+
+            <!-- Manele Section -->
+            <section class="category-section" data-category="manele">
+                <h2>Manele</h2>
+                <p class="category-description">Contemporary Romanian pop-folk fusion with Oriental influences</p>
+                <div class="songs-grid">
+                    <div class="song-card">
+                        <div class="song-header">
+                            <div class="song-info">
+                                <h3>Saint Tropez</h3>
+                                <p>Florin Salam</p>
+                            </div>
+                            <i data-lucide="play-circle" class="play-icon"></i>
+                        </div>
+                        <span class="difficulty-badge beginner">Beginner</span>
+                    </div>
+                    <!-- More manele songs... -->
+                </div>
+            </section>
+
+            <!-- Pop Music Section -->
+            <section class="category-section" data-category="pop">
+                <h2>Muzică pop (Pop Music)</h2>
+                <p class="category-description">Modern Romanian pop music with contemporary themes</p>
+                <div class="songs-grid">
+                    <div class="song-card">
+                        <div class="song-header">
+                            <div class="song-info">
+                                <h3>Dragostea Din Tei</h3>
+                                <p>O-Zone</p>
+                            </div>
+                            <i data-lucide="play-circle" class="play-icon"></i>
+                        </div>
+                        <span class="difficulty-badge beginner">Beginner</span>
+                    </div>
+                    <!-- More pop songs... -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Category filter functionality
+        document.getElementById('category-filter').addEventListener('change', function(e) {
+            const selectedCategory = e.target.value;
+            const sections = document.querySelectorAll('.category-section');
+            
+            sections.forEach(section => {
+                if (selectedCategory === 'all' || section.dataset.category === selectedCategory) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

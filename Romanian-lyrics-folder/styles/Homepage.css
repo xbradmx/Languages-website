@@ -1,0 +1,255 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(to bottom, #F5F3FF, #FFFFFF);
+  min-height: 100vh;
+}
+
+/* Navigation Styles */
+.nav-container {
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.nav-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  margin-left: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1F2937;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links button {
+  background: none;
+  border: none;
+  color: #4B5563;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.nav-links button:hover {
+  color: #1F2937;
+}
+
+/* Hero Section Styles */
+.hero-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: #1F2937;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  color: #4B5563;
+  margin-bottom: 2rem;
+}
+
+/* Search Bar Styles */
+.search-container {
+  max-width: 36rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 0.5rem 2.5rem 0.5rem 1rem;
+  border: 1px solid #D1D5DB;
+  border-radius: 9999px;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.search-container input:focus {
+  border-color: #8B5CF6;
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+}
+
+.search-icon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9CA3AF;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Features Section Styles */
+.features-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.icon-purple {
+  width: 3rem;
+  height: 3rem;
+  color: #8B5CF6;
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1F2937;
+}
+
+.feature-card p {
+  color: #4B5563;
+}
+
+/* Featured Content Styles */
+.featured-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.featured-container h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1F2937;
+  margin-bottom: 1.5rem;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.lesson-card {
+  background: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.lesson-image {
+  height: 12rem;
+  background-color: #F3E8FF;
+}
+
+.lesson-content {
+  padding: 1rem;
+}
+
+.lesson-content h3 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.lesson-content p {
+  color: #4B5563;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.lesson-button {
+  color: #8B5CF6;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.lesson-button:hover {
+  color: #7C3AED;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content h1 {
+      font-size: 1.875rem;
+  }
+  
+  .hero-content p {
+      font-size: 1.125rem;
+  }
+  
+  .features-grid {
+      grid-template-columns: 1fr;
+  }
+  
+  .featured-grid {
+      grid-template-columns: 1fr;
+  }
+}
+
+
+/* Style for the card */
+.feature-card {
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+/* Shadow on hover */
+.feature-card:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Change opacity when clicked */
+.feature-card:active {
+  opacity: 0.8;
+}
+
+/* Remove text decoration from the anchor and make it fit the card */
+.feature-card-link {
+  text-decoration: none;
+  display: block;
+}
